@@ -52,8 +52,8 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Razorpay order creation error:", error)
     let errorMessage = "Internal server error"
-    if (error && typeof error === "object" && "message" in error && typeof (error as any).message === "string") {
-      errorMessage = (error as any).message
+    if (error && typeof error === "object" && "message" in error && typeof (error).message === "string") {
+      errorMessage = (error).message
     }
     return NextResponse.json({ error: errorMessage }, { status: 500 })
   }

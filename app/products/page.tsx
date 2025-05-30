@@ -1,7 +1,6 @@
 import { Suspense } from "react"
 import ProductGridContainer from "@/components/product-grid-container"
 import ProductsLoading from "@/components/products-loading"
-import { getCategories } from "@/lib/supabase/categories"
 
 export const metadata = {
   title: "Products | NextShop",

@@ -40,7 +40,7 @@ export default function SignInPage() {
       await signIn(email, password)
       router.push(redirect)
     } catch (err) {
-      if (err && typeof err === "object" && "message" in err && typeof (err as any).message === "string") {
+      if (err && typeof err === "object" && "message" in err && typeof (err).message === "string") {
         setError((err as { message: string }).message)
       } else {
         setError("Failed to sign in. Please check your credentials.")
