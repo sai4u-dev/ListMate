@@ -136,11 +136,11 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="bg-gray-50 p-4 rounded-lg mt-4">
                 <p className="text-gray-700">
-                  <strong>Email:</strong> privacy@yourstore.com
+                  <strong>Email:</strong> privacy@trioMart.com
                   <br />
-                  <strong>Phone:</strong> +91 1800-123-4567
+                  <strong>Phone:</strong> +91 9553866040
                   <br />
-                  <strong>Address:</strong> 123 Business Street, Tech Park, Bangalore, Karnataka 560001, India
+                  <strong>Address:</strong> Narasaraopata, Guntur, Andhra pradhesh, India
                 </p>
               </div>
             </section>

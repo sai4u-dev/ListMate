@@ -331,7 +331,7 @@ export default function FAQPage() {
               <div className="text-center">
                 <Phone className="h-8 w-8 text-green-600 mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">Phone Support</h3>
-                <p className="text-gray-600 text-sm mb-3">Call us at +91 1800-123-4567</p>
+                <p className="text-gray-600 text-sm mb-3">Call us at +91 9553866040</p>
                 <Button variant="outline" size="sm">
                   Call Now
                 </Button>

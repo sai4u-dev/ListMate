@@ -39,7 +39,7 @@ export default function ShippingPolicyPage() {
                 <div className="bg-blue-50 p-6 rounded-lg">
                   <h3 className="text-lg font-medium text-blue-900 mb-3">🚚 Standard Shipping</h3>
                   <ul className="text-blue-800 space-y-2">
-                    <li>
+                    {/* <li>
                       <strong>Metro Cities:</strong> 2-4 business days
                     </li>
                     <li>
@@ -47,17 +47,18 @@ export default function ShippingPolicyPage() {
                     </li>
                     <li>
                       <strong>Rural Areas:</strong> 5-8 business days
-                    </li>
+                    </li> */}
                     <li>
                       <strong>Cost:</strong> ₹40 (Free above ₹499)
                     </li>
+
                   </ul>
                 </div>
 
                 <div className="bg-green-50 p-6 rounded-lg">
                   <h3 className="text-lg font-medium text-green-900 mb-3">⚡ Express Shipping</h3>
                   <ul className="text-green-800 space-y-2">
-                    <li>
+                    {/* <li>
                       <strong>Metro Cities:</strong> 1-2 business days
                     </li>
                     <li>
@@ -65,7 +66,7 @@ export default function ShippingPolicyPage() {
                     </li>
                     <li>
                       <strong>Rural Areas:</strong> 3-5 business days
-                    </li>
+                    </li> */}
                     <li>
                       <strong>Cost:</strong> ₹99
                     </li>
@@ -76,7 +77,7 @@ export default function ShippingPolicyPage() {
               <div className="bg-yellow-50 p-6 rounded-lg mt-6">
                 <h3 className="text-lg font-medium text-yellow-900 mb-3">🏃‍♂️ Same-Day Delivery</h3>
                 <p className="text-yellow-800">
-                  Available in select metro cities (Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune) for orders
+                  Available in selected cities (Narsaroapata) for orders
                   placed before 2:00 PM. Additional charges: ₹199
                 </p>
               </div>
@@ -322,11 +323,11 @@ export default function ShippingPolicyPage() {
               <p className="text-gray-700 leading-relaxed mb-4">For shipping-related queries or issues:</p>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700">
-                  <strong>Email:</strong> shipping@yourstore.com
+                  <strong>Email:</strong> shipping@trioMart.com
                   <br />
-                  <strong>Phone:</strong> +91 1800-123-4569
+                  <strong>Phone:</strong> +91 9553866040
                   <br />
-                  <strong>WhatsApp:</strong> +91 98765-43210
+                  <strong>WhatsApp:</strong> +91 9553866040
                   <br />
                   <strong>Live Chat:</strong> Available on our website 24/7
                   <br />

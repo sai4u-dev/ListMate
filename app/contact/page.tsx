@@ -35,8 +35,8 @@ export default function ContactPage() {
                   <Mail className="h-5 w-5 text-blue-600 mt-1" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-600">support@yourstore.com</p>
-                    <p className="text-gray-600">orders@yourstore.com</p>
+                    <p className="text-gray-600">support@trioMart.com</p>
+                    <p className="text-gray-600">orders@trioMart.com</p>
                   </div>
                 </div>
 
@@ -44,8 +44,8 @@ export default function ContactPage() {
                   <Phone className="h-5 w-5 text-blue-600 mt-1" />
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-gray-600">Customer Service: +91 1800-123-4567</p>
-                    <p className="text-gray-600">Orders & Returns: +91 1800-123-4568</p>
+                    <p className="text-gray-600">Customer Service: +91 9553866040</p>
+                    <p className="text-gray-600">Orders & Returns: +91 9948687470</p>
                   </div>
                 </div>
 
@@ -54,11 +54,11 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold">Address</h3>
                     <p className="text-gray-600">
-                      123 Business Street
+                      Narsaroapata
                       <br />
-                      Tech Park, Bangalore
+                      Guntur, 
                       <br />
-                      Karnataka 560001, India
+                      Andhra Pradesh, 522601
                     </p>
                   </div>
                 </div>
