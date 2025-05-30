@@ -14,7 +14,17 @@ interface ProductGridProps {
 
 export default async function ProductGrid({ category, sort, minPrice, maxPrice }: ProductGridProps) {
   const products = await getFilteredProducts({ category, sort, minPrice, maxPrice })
-
+  // const priceAfterDiscount = (product: any) => {
+  //   if (!product.discount || !product.discount_type) return product.price
+  //   if (product.discount_type === "percentage") {
+  //     return product.price - (product.price * product.discount) / 100
+  //   }
+  //   if (product.discount_type === "fixed") {
+  //     return Math.max(0, product.price - product.discount)
+  //   }
+  //   return product.price
+  // }
+  
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
@@ -30,6 +40,7 @@ export default async function ProductGrid({ category, sort, minPrice, maxPrice }
         <Card key={product.id} className="overflow-hidden h-full transition-all hover:shadow-md">
           <Link href={`/products/${product.id}`} >
             <div className="aspect-square relative bg-gray-100">
+              
               <Image
                 src={product.image_url || "/placeholder.svg"}
                 alt={product.name}
@@ -44,6 +55,7 @@ export default async function ProductGrid({ category, sort, minPrice, maxPrice }
             </CardContent>
             <CardFooter className="px-2 pt-0 flex items-center justify-between">
               <div className="font-semibold">{formatCurrency(product.price)}</div>
+              {/* <div className="font-semibold">{formatCurrency(priceAfterDiscount(product))}</div> */}
               <AddToCartButton product={product} />
             </CardFooter>
             </Link>

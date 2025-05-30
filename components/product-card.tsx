@@ -4,7 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Plus, Minus } from "lucide-react"
+import { Plus, Minus, ShoppingBasket, ShoppingCart, ShoppingCartIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/context/cart-context"
 import { useNotification } from "@/context/notification-context"
@@ -19,6 +19,23 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart, updateQuantity, getQuantity, removeFromCart } = useCart()
   const { showCartNotification } = useNotification()
   const quantity = getQuantity(product.id)
+
+  // ✅ Calculate the discounted price
+  const getPriceAfterDiscount = () => {
+    if (!product.discount || !product.discount_type) return product.price
+
+    if (product.discount_type === "percentage") {
+      return product.price - (product.price * product.discount) / 100
+    }
+
+    if (product.discount_type === "fixed") {
+      return Math.max(0, product.price - product.discount)
+    }
+
+    return product.price
+  }
+
+  const priceAfterDiscount = getPriceAfterDiscount()
 
   const handleIncrement = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -61,13 +78,28 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </div>
         <div className="p-2 flex flex-col flex-grow">
-          <h3 className="font-medium text-gray-900 mb-1 line-clamp-2">{product.name}</h3>
+          <h3 className="font-medium text-gray-900 mb-1 line-clamp-2">
+            {product.name}
+          </h3>
           <div className="mt-auto">
-            <div className="flex justify-between items-center">
-              <span className="text-lg font-semibold text-gray-900">
-                {formatCurrency(product.price)}
-              </span>
-              {quantity > 0 ? (
+            <div className="flex items-center justify-between">
+             <div className="grid"> {priceAfterDiscount < product.price ? (
+                <>
+                  <span className="text-sm text-gray-500 line-through">
+                    {formatCurrency(product.price)}
+                  </span>
+                  <span className="text-lg font-semibold text-green-600">
+                    {formatCurrency(priceAfterDiscount)}
+                  </span>
+                </>
+              ) : (
+                <span className="text-lg font-semibold text-gray-900">
+                  {formatCurrency(product.price)}
+                </span>
+              )}</div>
+
+             <div className="flex items-center space-x-2">
+               {quantity > 0 ? (
                 <div className="flex items-center space-x-2">
                   <Button size="icon" variant="outline" onClick={handleDecrement}>
                     <Minus className="h-4 w-4" />
@@ -79,9 +111,10 @@ export default function ProductCard({ product }: ProductCardProps) {
                 </div>
               ) : (
                 <Button size="sm" onClick={handleIncrement}>
-                  Add to Cart
+                  <ShoppingCartIcon className="h-4 w-4 mr-1" />
                 </Button>
               )}
+             </div>
             </div>
           </div>
         </div>

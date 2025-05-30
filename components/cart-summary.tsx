@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { formatCurrency } from "@/lib/utils"
+import { getPriceAfterDiscount } from "@/lib/pricing"
 
 export default function CartSummary() {
   const router = useRouter()
@@ -37,9 +38,13 @@ export default function CartSummary() {
     )
   }
 
-  const subtotal = cart.items.reduce((total, item) => total + item.price * item.quantity, 0)
+  const subtotal = cart.items.reduce((total, item) => {
+    const discountedPrice = getPriceAfterDiscount(item)
+    return total + discountedPrice * item.quantity
+  }, 0)
+
   const shipping = subtotal > 0 ? 10 : 0
-  const tax = subtotal * 1.8 // 18% tax
+  const tax = subtotal * 0.18 // 18% tax
   const total = subtotal + shipping + tax
 
   return (
@@ -69,7 +74,11 @@ export default function CartSummary() {
         </div>
       </CardContent>
       <CardFooter>
-        <Button onClick={() => router.push("/checkout")} disabled={cart.items.length === 0} className="w-full">
+        <Button
+          onClick={() => router.push("/checkout")}
+          disabled={cart.items.length === 0}
+          className="w-full"
+        >
           Proceed to Checkout
         </Button>
       </CardFooter>

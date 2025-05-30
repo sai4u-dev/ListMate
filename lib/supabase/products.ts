@@ -19,6 +19,12 @@ export async function getFeaturedProducts(): Promise<Product[]> {
     category_id: product.category_id,
     details: product.details,
     featured: product.featured,
+    inventory_count: product.inventory_count,
+    discount: product.discount || 0,
+    discount_type: product.discount_type || "fixed",
+    created_at: product.created_at,
+    updated_at: product.updated_at,
+    inventory_status: product.inventory_count > 0 ? "in_stock" : "out_of_stock",
   }))
 }
 
@@ -43,6 +49,12 @@ export async function getProducts(): Promise<Product[]> {
     category_id: product.category_id,
     details: product.details,
     featured: product.featured,
+    inventory_count: product.inventory_count,
+    discount: product.discount || 0,
+    discount_type: product.discount_type || "fixed",
+    created_at: product.created_at,
+    updated_at: product.updated_at,
+    inventory_status: product.inventory_count > 0 ? "in_stock" : "out_of_stock",
   }))
 }
 
@@ -64,6 +76,9 @@ export async function getProductById(id: string): Promise<Product | null> {
     category_id: data.category_id,
     details: data.details,
     featured: data.featured,
+    inventory_count: data.inventory_count,  
+    discount: data.discount || 0,
+    discount_type: data.discount_type || "fixed"
   }
 }
 
@@ -90,6 +105,12 @@ export async function getRelatedProducts(categoryId: string, excludeProductId: s
     category_id: product.category_id,
     details: product.details,
     featured: product.featured,
+    inventory_count: product.inventory_count,
+    discount: product.discount || 0,
+    discount_type: product.discount_type || "fixed",
+    created_at: product.created_at,
+    updated_at: product.updated_at,
+    inventory_status: product.inventory_count > 0 ? "in_stock" : "out_of_stock",  
   }))
 }
 
@@ -154,5 +175,11 @@ export async function getFilteredProducts(options: FilterOptions): Promise<Produ
     category_id: product.category_id,
     details: product.details,
     featured: product.featured,
+    inventory_count: product.inventory_count,
+    discount: product.discount || 0,
+    discount_type: product.discount_type || "fixed",
+    created_at: product.created_at,
+    updated_at: product.updated_at,
+    inventory_status: product.inventory_count > 0 ? "in_stock" : "out_of_stock",
   }))
 }

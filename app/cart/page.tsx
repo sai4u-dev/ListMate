@@ -6,6 +6,7 @@ import { Trash2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { formatCurrency } from "@/lib/utils"
+import { getPriceAfterDiscount } from "@/lib/pricing"
 import CartSummary from "@/components/cart-summary"
 import { useEffect, useState } from "react"
 
@@ -47,63 +48,80 @@ export default function CartPage() {
             <div className="p-6">
               <div className="flow-root">
                 <ul className="-my-6 divide-y">
-                  {cart.items.map((item) => (
-                    <li key={item.id} className="py-6 flex">
-                      <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
-                        <Image
-                          src={item.image_url || "/placeholder.svg"}
-                          alt={item.name || "Product image"}
-                          fill
-                          loading="lazy"
-                          className="object-cover object-center"
-                        />
-                      </div>
+                  {cart.items.map((item) => {
+                    const discountedPrice = getPriceAfterDiscount(item)
 
-                      <div className="ml-4 flex flex-1 flex-col">
-                        <div>
-                          <div className="flex justify-between text-base font-medium">
-                            <h3>
-                              <Link href={`/products/${item.id}`} className="hover:underline">
-                                {item.name}
-                              </Link>
-                            </h3>
-                            <p className="ml-4">{formatCurrency(item.price * item.quantity)}</p>
-                          </div>
-                          <p className="mt-1 text-sm text-muted-foreground">{formatCurrency(item.price)} each</p>
+                    return (
+                      <li key={item.id} className="py-6 flex">
+                        <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
+                          <Image
+                            src={item.image_url || "/placeholder.svg"}
+                            alt={item.name || "Product image"}
+                            fill
+                            loading="lazy"
+                            className="object-cover object-center"
+                          />
                         </div>
 
-                        <div className="flex flex-1 items-end justify-between text-sm">
-                          <div className="flex items-center">
-                            <label htmlFor={`quantity-${item.id}`} className="mr-2 text-muted-foreground">
-                              Qty
-                            </label>
-                            <select
-                              id={`quantity-${item.id}`}
-                              value={item.quantity}
-                              onChange={(e) => updateQuantity(item.id, Number.parseInt(e.target.value))}
-                              className="rounded-md border-gray-300 py-1 text-base focus:border-primary focus:outline-none focus:ring-primary"
+                        <div className="ml-4 flex flex-1 flex-col">
+                          <div>
+                            <div className="flex justify-between text-base font-medium">
+                              <h3>
+                                <Link href={`/products/${item.id}`} className="hover:underline">
+                                  {item.name}
+                                </Link>
+                              </h3>
+                              <p className="ml-4">
+                                {formatCurrency(discountedPrice * item.quantity)}
+                              </p>
+                            </div>
+                            <p className="mt-1 text-sm text-muted-foreground">
+                              {discountedPrice < item.price ? (
+                                <>
+                                  <span className="line-through mr-1">{formatCurrency(item.price)}</span>
+                                  <span>{formatCurrency(discountedPrice)} each</span>
+                                </>
+                              ) : (
+                                `${formatCurrency(item.price)} each`
+                              )}
+                            </p>
+                          </div>
+
+                          <div className="flex flex-1 items-end justify-between text-sm">
+                            <div className="flex items-center">
+                              <label htmlFor={`quantity-${item.id}`} className="mr-2 text-muted-foreground">
+                                Qty
+                              </label>
+                              <select
+                                id={`quantity-${item.id}`}
+                                value={item.quantity}
+                                onChange={(e) =>
+                                  updateQuantity(item.id, Number.parseInt(e.target.value))
+                                }
+                                className="rounded-md border-gray-300 py-1 text-base focus:border-primary focus:outline-none focus:ring-primary"
+                              >
+                                {[...Array(10)].map((_, i) => (
+                                  <option key={`${item.id}-${i + 1}`} value={i + 1}>
+                                    {i + 1}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => removeFromCart(item.id)}
+                              className="text-red-500 hover:text-red-700 hover:bg-red-50"
                             >
-                              {[...Array(10)].map((_, i) => (
-                                <option key={`${item.id}-${i + 1}`} value={i + 1}>
-                                  {i + 1}
-                                </option>
-                              ))}
-                            </select>
+                              <Trash2 className="h-4 w-4 mr-1" />
+                              Remove
+                            </Button>
                           </div>
-
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => removeFromCart(item.id)}
-                            className="text-red-500 hover:text-red-700 hover:bg-red-50"
-                          >
-                            <Trash2 className="h-4 w-4 mr-1" />
-                            Remove 
-                          </Button>
                         </div>
-                      </div>
-                    </li>
-                  ))}
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
             </div>

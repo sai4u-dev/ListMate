@@ -5,6 +5,7 @@ import { useCart } from "@/context/cart-context"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { formatCurrency } from "@/lib/utils"
+import { getPriceAfterDiscount } from "@/lib/pricing"
 import Image from "next/image"
 
 export default function CheckoutSummary() {
@@ -32,7 +33,11 @@ export default function CheckoutSummary() {
     )
   }
 
-  const subtotal = cart.items.reduce((total, item) => total + item.price * item.quantity, 0)
+  const subtotal = cart.items.reduce((total, item) => {
+    const discountedPrice = getPriceAfterDiscount(item)
+    return total + discountedPrice * item.quantity
+  }, 0)
+
   const shipping = subtotal > 0 ? 10 : 0
   const tax = subtotal * 0.1 // 10% tax
   const total = subtotal + shipping + tax
@@ -59,7 +64,9 @@ export default function CheckoutSummary() {
                   <p className="text-sm font-medium truncate">{item.name}</p>
                   <p className="text-xs text-muted-foreground">Qty: {item.quantity}</p>
                 </div>
-                <div className="text-sm font-medium">{formatCurrency(item.price * item.quantity)}</div>
+                <div className="text-sm font-medium">
+                  {formatCurrency(getPriceAfterDiscount(item) * item.quantity)}
+                </div>
               </div>
             ))}
           </div>

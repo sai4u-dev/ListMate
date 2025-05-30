@@ -121,6 +121,8 @@ export default function CheckoutPage() {
     }
   }
 
+  
+
   return (
     <>
       <Script
