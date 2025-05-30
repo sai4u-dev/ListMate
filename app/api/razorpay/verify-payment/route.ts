@@ -26,8 +26,11 @@ export async function POST(request: NextRequest) {
     })
 
     return NextResponse.json({ success: true, orderId: order.id })
-  } catch (error: any) {
+  } catch (error) {
     console.error("Payment verification error:", error)
-    return NextResponse.json({ error: error.message || "Internal server error" }, { status: 500 })
+    const errorMessage = typeof error === "object" && error !== null && "message" in error
+      ? (error as { message: string }).message
+      : "Internal server error"
+    return NextResponse.json({ error: errorMessage }, { status: 500 })
   }
 }

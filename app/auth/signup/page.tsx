@@ -60,8 +60,12 @@ export default function SignUpPage() {
     try {
       await signUp(email, password, name)
       router.push(redirect)
-    } catch (err: any) {
-      setError(err.message || "Failed to sign up. Please try again.")
+    } catch (err) {
+      if (err && typeof err === "object" && "message" in err) {
+        setError((err as { message: string }).message || "Failed to sign up. Please try again.")
+      } else {
+        setError("Failed to sign up. Please try again.")
+      }
     } finally {
       setIsLoading(false)
     }
@@ -85,9 +89,13 @@ export default function SignUpPage() {
     const confirmation = await signInWithPhoneNumber(auth, phone, recaptcha)
     setConfirmationResult(confirmation)
     setOtpSent(true)
-  } catch (err: any) {
+  } catch (err) {
     console.error(err)
-    setError(err.message || "Failed to send OTP")
+    if (err && typeof err === "object" && "message" in err && typeof (err as any).message === "string") {
+      setError((err as { message: string }).message)
+    } else {
+      setError("Failed to send OTP")
+    }
   }
 }
 
@@ -99,7 +107,7 @@ export default function SignUpPage() {
       const user = result.user
       console.log("User signed in:", user)
       router.push(redirect)
-    } catch (err: any) {
+    } catch (err) {
       console.error(err)
       setError("Invalid OTP")
     }

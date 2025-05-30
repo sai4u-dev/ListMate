@@ -304,7 +304,7 @@ export default function FAQPage() {
           <div className="text-center py-12">
             <h3 className="text-xl font-medium text-gray-900 mb-2">No results found</h3>
             <p className="text-gray-600 mb-6">
-              We couldn't find any FAQs matching your search. Try different keywords or contact our support team.
+              We couldnt find any FAQs matching your search. Try different keywords or contact our support team.
             </p>
             <Button onClick={() => setSearchTerm("")}>Clear Search</Button>
           </div>
@@ -315,7 +315,7 @@ export default function FAQPage() {
           <CardHeader>
             <CardTitle className="text-center">Still need help?</CardTitle>
             <CardDescription className="text-center">
-              Can't find what you're looking for? Our support team is here to help.
+              Cant find what youre looking for? Our support team is here to help.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -339,7 +339,7 @@ export default function FAQPage() {
               <div className="text-center">
                 <Mail className="h-8 w-8 text-purple-600 mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">Email Support</h3>
-                <p className="text-gray-600 text-sm mb-3">Send us an email and we'll respond within 24 hours</p>
+                <p className="text-gray-600 text-sm mb-3">Send us an email and well respond within 24 hours</p>
                 <Button variant="outline" size="sm">
                   Send Email
                 </Button>

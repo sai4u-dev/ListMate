@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 leading-relaxed">
-                Welcome to our e-commerce platform ("we," "our," or "us"). We are committed to protecting your personal
+                Welcome to our e-commerce platform (we, our, or us). We are committed to protecting your personal
                 information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and
                 safeguard your information when you visit our website and use our services.
               </p>
@@ -112,7 +112,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Children's Privacy</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Childrens Privacy</h2>
               <p className="text-gray-700 leading-relaxed">
                 Our services are not intended for children under 13 years of age. We do not knowingly collect personal
                 information from children under 13. If you believe we have collected information from a child under 13,
@@ -124,7 +124,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Changes to This Privacy Policy</h2>
               <p className="text-gray-700 leading-relaxed">
                 We may update this Privacy Policy from time to time. We will notify you of any changes by posting the
-                new Privacy Policy on this page and updating the "Last updated" date. We encourage you to review this
+                new Privacy Policy on this page and updating the Last updated date. We encourage you to review this
                 Privacy Policy periodically.
               </p>
             </section>

@@ -16,7 +16,7 @@ export default function AddressesPage() {
       </CardHeader>
       <CardContent>
         <div className="text-center py-8">
-          <p className="text-muted-foreground mb-4">You don't have any saved addresses yet.</p>
+          <p className="text-muted-foreground mb-4">You do not have any saved addresses yet.</p>
           <Button>
             <PlusCircle className="h-4 w-4 mr-2" />
             Add New Address

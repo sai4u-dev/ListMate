@@ -1,8 +1,6 @@
 import { Suspense } from "react"
 import ProductGridContainer from "@/components/product-grid-container"
-import ProductFilters from "@/components/product-filters"
 import ProductsLoading from "@/components/products-loading"
-import CategoryDropdown from "@/components/category-dropdown"
 import { getCategories } from "@/lib/supabase/categories"
 
 export const metadata = {
@@ -21,7 +19,6 @@ export default async function ProductsPage({
   const maxPrice = typeof searchParams.maxPrice === "string" ? Number.parseInt(searchParams.maxPrice) : undefined
 
   // Fetch categories for the dropdown
-  const categories = await getCategories()
 
   return (
     <main className="container mx-auto px-4 py-8">

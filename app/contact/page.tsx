@@ -12,7 +12,7 @@ export default function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We're here to help! Get in touch with us for any questions, concerns, or feedback about your shopping
+            Were here to help! Get in touch with us for any questions, concerns, or feedback about your shopping
             experience.
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function ContactPage() {
                   Get in Touch
                 </CardTitle>
                 <CardDescription>
-                  We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                  Wed love to hear from you. Send us a message and well respond as soon as possible.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -84,7 +84,7 @@ export default function ContactPage() {
                 <div>
                   <h4 className="font-semibold">How can I track my order?</h4>
                   <p className="text-gray-600 text-sm">
-                    You can track your order by logging into your account and visiting the "My Orders" section.
+                    You can track your order by logging into your account and visiting the My Orders section.
                   </p>
                 </div>
                 <div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
           <Card>
             <CardHeader>
               <CardTitle>Send us a Message</CardTitle>
-              <CardDescription>Fill out the form below and we'll get back to you within 24 hours.</CardDescription>
+              <CardDescription>Fill out the form below and well get back to you within 24 hours.</CardDescription>
             </CardHeader>
             <CardContent>
               <form className="space-y-6">

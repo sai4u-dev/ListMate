@@ -14,7 +14,7 @@ export default function ShippingPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Shipping Coverage</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 We currently ship to all locations within India. International shipping is not available at this time,
-                but we're working to expand our reach globally in the future.
+                but were working to expand our reach globally in the future.
               </p>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">1.1 Serviceable Areas</h3>
@@ -27,7 +27,7 @@ export default function ShippingPolicyPage() {
 
               <h3 className="text-xl font-medium text-gray-800 mb-3 mt-6">1.2 Non-Serviceable Areas</h3>
               <p className="text-gray-700 leading-relaxed">
-                We cannot deliver to certain remote locations, military bases, or areas with restricted access. You'll
+                We cannot deliver to certain remote locations, military bases, or areas with restricted access. Youll
                 be notified during checkout if your area is not serviceable.
               </p>
             </section>
@@ -199,14 +199,14 @@ export default function ShippingPolicyPage() {
               <h3 className="text-xl font-medium text-gray-800 mb-3">5.1 How to Track</h3>
               <ol className="list-decimal pl-6 text-gray-700 space-y-2">
                 <li>Log into your account</li>
-                <li>Go to "My Orders" section</li>
+                <li>Go to My Orders section</li>
                 <li>Click on the order you want to track</li>
                 <li>View real-time tracking information</li>
                 <li>Get SMS/email updates automatically</li>
               </ol>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3 mt-6">5.2 Tracking Information</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">You'll receive tracking information via:</p>
+              <p className="text-gray-700 leading-relaxed mb-4">Youll receive tracking information via:</p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Email notifications at key milestones</li>
                 <li>SMS updates for dispatch and delivery</li>
@@ -236,7 +236,7 @@ export default function ShippingPolicyPage() {
 
               <h3 className="text-xl font-medium text-gray-800 mb-3 mt-6">6.3 Safe Delivery Options</h3>
               <p className="text-gray-700 leading-relaxed">
-                In case you're not available, we offer safe delivery options like leaving packages with trusted
+                In case youre not available, we offer safe delivery options like leaving packages with trusted
                 neighbors, building security, or designated safe locations (with prior arrangement).
               </p>
             </section>

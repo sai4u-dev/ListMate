@@ -19,6 +19,11 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Badge } from "@/components/ui/badge"
 import { ShoppingCart, User, Menu, Search, LogOut, Package } from "lucide-react"
 
+interface SearchResultItem {
+  id: string
+  name: string
+}
+
 export default function Header() {
   const pathname = usePathname()
   const { cart } = useCart()
@@ -26,9 +31,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
 
-  // Search-related state
   const [query, setQuery] = useState("")
-  const [results, setResults] = useState<any[]>([])
+  const [results, setResults] = useState<SearchResultItem[]>([])
   const [loading, setLoading] = useState(false)
   const [showResults, setShowResults] = useState(false)
 
@@ -49,7 +53,7 @@ export default function Header() {
     setLoading(true)
     try {
       const res = await fetch(`/api/search?q=${encodeURIComponent(searchTerm)}`)
-      const data = await res.json()
+      const data: SearchResultItem[] = await res.json()
       setResults(data)
     } catch (err) {
       console.error("Search error:", err)
@@ -76,11 +80,7 @@ export default function Header() {
   ]
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white"
-      }`}
-    >
+    <header className={`sticky top-0 z-50 w-full transition-all duration-200 ${isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white"}`}>
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -100,9 +100,7 @@ export default function Header() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`text-sm font-medium ${
-                        pathname === link.href ? "text-primary" : "text-muted-foreground"
-                      }`}
+                      className={`text-sm font-medium ${pathname === link.href ? "text-primary" : "text-muted-foreground"}`}
                     >
                       {link.label}
                     </Link>
@@ -120,9 +118,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium ${
-                    pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  className={`text-sm font-medium ${pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
                 >
                   {link.label}
                 </Link>
@@ -130,7 +126,7 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Desktop Search Input with Live Fetch */}
+          {/* Desktop search bar */}
           <div className="hidden md:flex items-center w-full max-w-sm mx-6 relative">
             <form
               className="flex w-full"
@@ -160,11 +156,7 @@ export default function Header() {
             {showResults && results.length > 0 && (
               <div className="absolute top-full left-0 w-full bg-white border rounded shadow-md z-50 max-h-60 overflow-auto">
                 {results.map((item) => (
-                  <Link
-                    key={item.id}
-                    href={`/products/${item.id}`}
-                    className="block px-4 py-2 hover:bg-muted"
-                  >
+                  <Link key={item.id} href={`/products/${item.id}`} className="block px-4 py-2 hover:bg-muted">
                     {item.name}
                   </Link>
                 ))}

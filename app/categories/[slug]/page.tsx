@@ -3,7 +3,6 @@ import { Suspense } from "react"
 import { getCategoryBySlug } from "@/lib/supabase/categories"
 import ProductGrid from "@/components/product-grid"
 import ProductsLoading from "@/components/products-loading"
-import ProductFilters from "@/components/product-filters"
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const category = await getCategoryBySlug(params.slug)

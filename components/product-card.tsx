@@ -1,10 +1,9 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Plus, Minus, ShoppingBasket, ShoppingCart, ShoppingCartIcon } from "lucide-react"
+import { Plus, Minus, ShoppingCartIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/context/cart-context"
 import { useNotification } from "@/context/notification-context"

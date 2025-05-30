@@ -22,17 +22,17 @@ export default function TermsPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Definitions</h2>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>
-                  <strong>"Company"</strong> refers to our e-commerce platform and its operators
+                  <strong>Company</strong> refers to our e-commerce platform and its operators
                 </li>
                 <li>
-                  <strong>"User"</strong> refers to anyone who accesses or uses our website
+                  <strong>User</strong> refers to anyone who accesses or uses our website
                 </li>
                 <li>
-                  <strong>"Services"</strong> refers to all features, content, and functionality offered through our
+                  <strong>Services</strong> refers to all features, content, and functionality offered through our
                   platform
                 </li>
                 <li>
-                  <strong>"Products"</strong> refers to all items available for purchase on our platform
+                  <strong>Products</strong> refers to all items available for purchase on our platform
                 </li>
               </ul>
             </section>
@@ -163,7 +163,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Disclaimer</h2>
               <p className="text-gray-700 leading-relaxed">
-                The materials on our website are provided on an 'as is' basis. We make no warranties, expressed or
+                The materials on our website are provided on an as is basis. We make no warranties, expressed or
                 implied, and hereby disclaim and negate all other warranties including without limitation, implied
                 warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of
                 intellectual property or other violation of rights.

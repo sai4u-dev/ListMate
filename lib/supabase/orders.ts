@@ -1,6 +1,7 @@
 import { supabase } from "./client"
+import type { OrderInput, Order } from "@/types/order"
 
-export async function createOrder(order: any) {
+export async function createOrder(order: OrderInput): Promise<Order> {
   const { data, error } = await supabase
     .from("orders")
     .insert({
@@ -11,7 +12,7 @@ export async function createOrder(order: any) {
       payment_intent_id: order.paymentIntentId,
       session_id: order.sessionId,
     })
-    .select()
+    .select("*, order_items(*)")
     .single()
 
   if (error) {
@@ -19,10 +20,10 @@ export async function createOrder(order: any) {
     throw error
   }
 
-  return data
+  return data as Order
 }
 
-export async function getOrdersByUserId(userId: string) {
+export async function getOrdersByUserId(userId: string): Promise<Order[]> {
   const { data, error } = await supabase
     .from("orders")
     .select("*, order_items(*)")
@@ -34,22 +35,25 @@ export async function getOrdersByUserId(userId: string) {
     return []
   }
 
-  return data
+  return data as Order[]
 }
 
-export async function getOrderDetails(sessionId: string) {
-  const { data, error } = await supabase.from("orders").select("*, order_items(*)").eq("session_id", sessionId).single()
+export async function getOrderDetails(sessionId: string): Promise<Order | null> {
+  const { data, error } = await supabase
+    .from("orders")
+    .select("*, order_items(*)")
+    .eq("session_id", sessionId)
+    .single()
 
   if (error) {
     console.error(`Error fetching order with session ID ${sessionId}:`, error)
     return null
   }
 
-  return data
+  return data as Order
 }
 
-
-export async function getCurrentUserOrders() {
+export async function getCurrentUserOrders(): Promise<Order[]> {
   const { data: user, error: userError } = await supabase.auth.getUser()
 
   if (userError) {

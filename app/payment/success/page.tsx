@@ -9,11 +9,25 @@ import { CheckCircle } from "lucide-react"
 import { getOrderDetails } from "@/lib/supabase/orders"
 import { formatCurrency } from "@/lib/utils"
 
+interface OrderItem {
+  id: string
+  name: string
+  price: number
+  quantity: number
+}
+
+interface Order {
+  id: string
+  created_at: string
+  total_amount: number
+  items: OrderItem[]
+}
+
 export default function PaymentSuccessPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { clearCart } = useCart()
-  const [order, setOrder] = useState<any>(null)
+  const [order, setOrder] = useState<Order | null>(null)
   const [loading, setLoading] = useState(true)
 
   const sessionId = searchParams.get("session_id")
@@ -28,7 +42,6 @@ export default function PaymentSuccessPage() {
       try {
         const orderData = await getOrderDetails(sessionId)
         setOrder(orderData)
-        // Clear the cart after successful payment
         clearCart()
       } catch (error) {
         console.error("Error fetching order details:", error)
@@ -52,7 +65,7 @@ export default function PaymentSuccessPage() {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-3xl font-bold mb-6">Order Not Found</h1>
-        <p className="text-muted-foreground mb-8">We couldn't find your order details.</p>
+        <p className="text-muted-foreground mb-8">We couldnt find your order details.</p>
         <Button asChild>
           <Link href="/">Return to Home</Link>
         </Button>
@@ -95,7 +108,7 @@ export default function PaymentSuccessPage() {
           <div className="border-t pt-4">
             <h3 className="font-medium mb-2">Items</h3>
             <ul className="space-y-2">
-              {order.items.map((item: any) => (
+              {order.items.map((item) => (
                 <li key={item.id} className="flex justify-between">
                   <span>
                     {item.name} × {item.quantity}

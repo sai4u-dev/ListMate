@@ -4,25 +4,46 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { formatCurrency } from "@/lib/utils"
+import { formatCurrency, formatDate } from "@/lib/utils"
 import { getCurrentUserOrders } from "@/lib/supabase/orders"
-import { formatDate } from "@/lib/utils"
-import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react"
 
 export const metadata = {
   title: "My Orders | NextShop",
   description: "View your order history",
 }
 
+// ---------- Define Types ----------
+type Product = {
+  image_url: string
+  name: string
+}
+
+type OrderItem = {
+  id: string
+  product: Product
+  quantity: number
+  unit_price: number
+  total_price: number
+}
+
+type Order = {
+  id: string
+  status: string
+  created_at: string
+  total_amount: number
+  order_items: OrderItem[]
+}
+
+// ---------- Main Page Component ----------
 export default async function OrdersPage() {
-  const orders = await getCurrentUserOrders()
+  const orders: Order[] = await getCurrentUserOrders()
 
   if (!orders || orders.length === 0) {
     return (
       <Card>
         <CardHeader>
           <CardTitle>My Orders</CardTitle>
-          <CardDescription>You haven't placed any orders yet.</CardDescription>
+          <CardDescription>You haven&apos;t placed any orders yet.</CardDescription>
         </CardHeader>
         <CardContent>
           <Button asChild>
@@ -59,7 +80,7 @@ export default async function OrdersPage() {
 
           <CardContent className="p-6">
             <div className="space-y-4">
-              {order.order_items.slice(0, 2).map((item: { id: Key | null | undefined; product: { image_url: any; name: any }; quantity: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; unit_price: number; total_price: number }) => (
+              {order.order_items.slice(0, 2).map((item) => (
                 <div key={item.id} className="flex items-center gap-4">
                   <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border">
                     <Image
@@ -97,11 +118,12 @@ export default async function OrdersPage() {
   )
 }
 
+// ---------- Order Status Badge Variant Helper ----------
 function getOrderStatusVariant(status: string) {
   switch (status.toLowerCase()) {
     case "paid":
     case "completed":
-      return "success"
+      return "default"
     case "processing":
     case "shipped":
       return "default"

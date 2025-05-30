@@ -2,26 +2,66 @@
 
 import type { CartItem } from "@/types/cart"
 
+interface CustomerDetails {
+  name: string
+  email: string
+  address: string
+  city: string
+  state: string
+  postalCode: string
+  country: string
+  phone?: string
+}
+
 interface CheckoutOptions {
   items: CartItem[]
-  customerDetails: {
-    name: string
-    email: string
-    address: string
-    city: string
-    state: string
-    postalCode: string
-    country: string
-  }
+  customerDetails: CustomerDetails
+}
+
+interface RazorpayOrderResponse {
+  id: string
+  amount: number
+  currency: string
+}
+
+interface RazorpayPaymentResponse {
+  razorpay_payment_id: string
+  razorpay_order_id: string
+  razorpay_signature: string
 }
 
 declare global {
   interface Window {
-    Razorpay: any
+    Razorpay: new (options: RazorpayOptions) => RazorpayInstance
   }
 }
 
-export async function createRazorpayOrder(options: CheckoutOptions) {
+interface RazorpayOptions {
+  key: string | undefined
+  amount: number
+  currency: string
+  name: string
+  description: string
+  order_id: string
+  prefill: {
+    name: string
+    email: string
+    contact: string
+  }
+  theme: {
+    color: string
+  }
+  handler: (response: RazorpayPaymentResponse) => void
+  modal: {
+    ondismiss: () => void
+  }
+}
+
+interface RazorpayInstance {
+  open(): void
+}
+
+export async function createRazorpayOrder(options: CheckoutOptions): Promise<RazorpayOrderResponse> {
   try {
     const response = await fetch("/api/razorpay/create-order", {
       method: "POST",
@@ -32,7 +72,7 @@ export async function createRazorpayOrder(options: CheckoutOptions) {
     })
 
     if (!response.ok) {
-      throw new Error("Network response was not ok")
+      throw new Error("Failed to create Razorpay order")
     }
 
     return await response.json()
@@ -42,9 +82,12 @@ export async function createRazorpayOrder(options: CheckoutOptions) {
   }
 }
 
-export function initializeRazorpayPayment(orderData: any, customerDetails: any) {
+export function initializeRazorpayPayment(
+  orderData: RazorpayOrderResponse,
+  customerDetails: CustomerDetails
+): Promise<RazorpayPaymentResponse> {
   return new Promise((resolve, reject) => {
-    const options = {
+    const options: RazorpayOptions = {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       amount: orderData.amount,
       currency: orderData.currency,
@@ -59,7 +102,7 @@ export function initializeRazorpayPayment(orderData: any, customerDetails: any) 
       theme: {
         color: "#3399cc",
       },
-      handler: (response: any) => {
+      handler: (response) => {
         resolve(response)
       },
       modal: {

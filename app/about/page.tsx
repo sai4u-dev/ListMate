@@ -70,7 +70,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">About Our Story</h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90">
-              We're on a mission to make quality products accessible to everyone, everywhere.
+              We are on a mission to make quality products accessible to everyone, everywhere.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">
@@ -102,12 +102,12 @@ export default function AboutPage() {
                 platform serving hundreds of thousands of customers across India.
               </p>
               <p className="text-gray-700 leading-relaxed mb-6">
-                We believe that great products shouldn't be limited by geography or budget. That's why we've built
+                We believe that great products should not be limited by geography or budget. Thats why we have built
                 relationships with suppliers worldwide to bring you quality products at competitive prices, backed by
                 exceptional customer service.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Today, we're proud to be more than just an e-commerce platform – we're a community of shoppers, sellers,
+                Today, we are proud to be more than just an e-commerce platform – we are a community of shoppers, sellers,
                 and dreamers working together to make commerce better for everyone.
               </p>
             </div>

@@ -13,7 +13,7 @@ export default function RefundPolicyPage() {
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Overview</h2>
               <p className="text-gray-700 leading-relaxed">
-                We want you to be completely satisfied with your purchase. If you're not happy with your order, we offer
+                We want you to be completely satisfied with your purchase. If youre not happy with your order, we offer
                 a comprehensive refund policy to ensure your peace of mind when shopping with us.
               </p>
             </section>
@@ -50,18 +50,18 @@ export default function RefundPolicyPage() {
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">3.1 How to Request a Refund</h3>
               <ol className="list-decimal pl-6 text-gray-700 space-y-2">
-                <li>Log into your account and go to "My Orders"</li>
-                <li>Find the order you want to return and click "Request Refund"</li>
+                <li>Log into your account and go to My Orders</li>
+                <li>Find the order you want to return and click Request Refund</li>
                 <li>Select the items you want to return and provide a reason</li>
                 <li>Submit your refund request</li>
-                <li>We'll review your request within 2-3 business days</li>
+                <li>Well review your request within 2-3 business days</li>
               </ol>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3 mt-6">3.2 Return Shipping</h3>
               <p className="text-gray-700 leading-relaxed">
-                For eligible returns, we provide free return shipping. You'll receive a prepaid return label via email
+                For eligible returns, we provide free return shipping. Youll receive a prepaid return label via email
                 once your refund request is approved. If the return is due to our error (wrong item, damaged item),
-                we'll cover all return shipping costs.
+                well cover all return shipping costs.
               </p>
             </section>
 
@@ -148,7 +148,7 @@ export default function RefundPolicyPage() {
               <ol className="list-decimal pl-6 text-gray-700 space-y-2">
                 <li>Contact us immediately (within 48 hours of delivery)</li>
                 <li>Provide photos of the damaged item and packaging</li>
-                <li>We'll arrange immediate replacement or full refund</li>
+                <li>Well arrange immediate replacement or full refund</li>
                 <li>No return shipping required for damaged items</li>
               </ol>
             </section>
@@ -166,7 +166,7 @@ export default function RefundPolicyPage() {
                   <br />
                   <strong>Hours:</strong> Monday-Friday, 9:00 AM - 6:00 PM IST
                   <br />
-                  <strong>Online:</strong> Use the "Request Refund" feature in your account
+                  <strong>Online:</strong> Use the Request Refund feature in your account
                 </p>
               </div>
             </section>

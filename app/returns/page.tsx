@@ -56,7 +56,7 @@ export default function ReturnsPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Returns & Exchanges</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We want you to be completely satisfied with your purchase. If you're not happy with an item, we're here to
+            We want you to be completely satisfied with your purchase. If youre not happy with an item, were here to
             help with our hassle-free return process.
           </p>
         </div>
@@ -229,7 +229,7 @@ export default function ReturnsPage() {
         <Card className="mb-12">
           <CardHeader>
             <CardTitle>Refund Information</CardTitle>
-            <CardDescription>How and when you'll receive your refund</CardDescription>
+            <CardDescription>How and when youll receive your refund</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-3 gap-6">

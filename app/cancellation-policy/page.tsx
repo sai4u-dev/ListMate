@@ -25,7 +25,7 @@ export default function CancellationPolicyPage() {
                 <h3 className="text-lg font-medium text-green-900 mb-3">✅ Free Cancellation Window</h3>
                 <p className="text-green-800">
                   You can cancel your order free of charge within <strong>2 hours</strong> of placing it, provided the
-                  order hasn't been processed or shipped.
+                  order hasnt been processed or shipped.
                 </p>
               </div>
 
@@ -56,12 +56,12 @@ export default function CancellationPolicyPage() {
               <h3 className="text-xl font-medium text-gray-800 mb-3">3.1 Online Cancellation</h3>
               <ol className="list-decimal pl-6 text-gray-700 space-y-2 mb-6">
                 <li>Log into your account</li>
-                <li>Go to "My Orders" section</li>
+                <li>Go to My Orders section</li>
                 <li>Find the order you want to cancel</li>
-                <li>Click "Cancel Order" button</li>
+                <li>Click Cancel Order button</li>
                 <li>Select cancellation reason</li>
                 <li>Confirm cancellation</li>
-                <li>You'll receive a confirmation email</li>
+                <li>Youll receive a confirmation email</li>
               </ol>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">3.2 Phone Cancellation</h3>
@@ -187,7 +187,7 @@ export default function CancellationPolicyPage() {
                 <li>Technical errors in pricing or product information</li>
               </ul>
               <p className="text-gray-700 leading-relaxed mt-4">
-                In case of automatic cancellation, you'll receive immediate notification and a full refund within 3-5
+                In case of automatic cancellation, youll receive immediate notification and a full refund within 3-5
                 business days.
               </p>
             </section>
