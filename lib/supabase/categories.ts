@@ -4,7 +4,7 @@ import type { Category } from "@/types/category"
 export async function getCategories(throwOnError = false): Promise<Category[]> {
   const { data, error } = await supabase
     .from("categories")
-    .select("id, name, slug")
+    .select("id, name, slug, image_url")
     .order("name")
 
   if (error) {
@@ -30,7 +30,7 @@ export async function fetchCategories(): Promise<Category[]> {
 export async function getCategoryBySlug(slug: string): Promise<Category | null> {
   const { data, error } = await supabase
     .from("categories")
-    .select("id, name, slug")
+    .select("id, name, slug, image_url")
     .eq("slug", slug)
     .single()
 

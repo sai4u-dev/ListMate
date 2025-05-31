@@ -1,3 +1,5 @@
+// app/categories/[slug]/page.tsx
+
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 import { getCategoryBySlug } from "@/lib/supabase/categories"
@@ -25,10 +27,8 @@ export async function generateMetadata({
 
 export default async function CategoryPage({
   params,
-  searchParams,
 }: {
   params: { slug: string }
-  searchParams?: { [key: string]: string | string[] | undefined }
 }) {
   const category = await getCategoryBySlug(params.slug)
 
@@ -36,29 +36,13 @@ export default async function CategoryPage({
     notFound()
   }
 
-  const sort =
-    typeof searchParams?.sort === "string" ? searchParams.sort : undefined
-  const minPrice =
-    typeof searchParams?.minPrice === "string"
-      ? Number.parseInt(searchParams.minPrice)
-      : undefined
-  const maxPrice =
-    typeof searchParams?.maxPrice === "string"
-      ? Number.parseInt(searchParams.maxPrice)
-      : undefined
-
   return (
     <main className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">{category.name}</h1>
 
       <div className="flex-1">
         <Suspense fallback={<ProductsLoading />}>
-          <ProductGrid
-            category={category.id}
-            sort={sort}
-            minPrice={minPrice}
-            maxPrice={maxPrice}
-          />
+          <ProductGrid category={category.id} />
         </Suspense>
       </div>
     </main>
