@@ -1,15 +1,19 @@
 import { supabase } from "./client"
 import type { Category } from "@/types/category"
 
-export async function getCategories(): Promise<Category[]> {
-  const { data, error } = await supabase.from("categories").select("*").order("name")
+export async function getCategories(throwOnError = false): Promise<Category[]> {
+  const { data, error } = await supabase
+    .from("categories")
+    .select("id, name, slug")
+    .order("name")
 
   if (error) {
     console.error("Error fetching categories:", error)
+    if (throwOnError) throw new Error("Failed to fetch categories")
     return []
   }
 
-  return data
+  return data || []
 }
 
 export async function fetchCategories(): Promise<Category[]> {
@@ -24,7 +28,11 @@ export async function fetchCategories(): Promise<Category[]> {
 }
 
 export async function getCategoryBySlug(slug: string): Promise<Category | null> {
-  const { data, error } = await supabase.from("categories").select("*").eq("slug", slug).single()
+  const { data, error } = await supabase
+    .from("categories")
+    .select("id, name, slug")
+    .eq("slug", slug)
+    .single()
 
   if (error) {
     console.error(`Error fetching category with slug ${slug}:`, error)
