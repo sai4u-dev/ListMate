@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<!-- ===================== HEADER ===================== -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tannirusainarendra/tannirusainarendra/main/header-3d.gif" alt="3D Coding Animation" width="700"/>
+</p>
 
-## Getting Started
+<h1 align="center">👋 Hi, I'm Sai Narendra</h1>
+<p align="center">
+  <em>Full Stack Developer | Security & DX-Focused | Code Artist</em>
+</p>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<!-- ===================== SKILLS ===================== -->
+## 🛠 Tech Stack & Skills
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+  <!-- Frontend -->
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white"/>
+</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<p align="center">
+  <!-- Backend -->
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Fastify-000000?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge"/>
+</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<p align="center">
+  <!-- Tools & DevOps -->
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+  <img src="https://img.shields.io/badge/GitHub Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Turborepo-000000?style=for-the-badge"/>
+</p>
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 💼 Featured Projects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **1️⃣ Multi-Tenant SaaS Dashboard**
+- Real-time WebSockets notifications  
+- Role-based access & secure auth  
+- Multi-tenant DB & Supabase integration  
+- **Demo:** ![Dashboard Demo](https://raw.githubusercontent.com/tannirusainarendra/tannirusainarendra/main/demo-dashboard.gif)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **2️⃣ Real-Time E-Commerce Platform**
+- Inventory & cart syncing across warehouses  
+- AI-based recommendations  
+- CI/CD automation & Vercel deployment  
+- **Demo:** ![E-Commerce Demo](https://raw.githubusercontent.com/tannirusainarendra/tannirusainarendra/main/demo-ecommerce.gif)
 
-## Deploy on Vercel
+### **3️⃣ DX Starter Kit**
+- TypeScript + Next.js + Fastify boilerplate  
+- Automated linting, testing, and auth scaffolding  
+- CLI to generate projects  
+- **Demo:** ![DX Kit Demo](https://raw.githubusercontent.com/tannirusainarendra/tannirusainarendra/main/demo-dxkit.gif)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📊 GitHub Stats
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=sai4u-dev&theme=vue-dark&show_icons=true&hide_border=true&count_private=true" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sai4u-dev&theme=vue-dark&show_icons=true&hide_border=true&layout=compact" />
+</p>
+
+---
+## 📫 Connect with Me
+<p align="center">
+  <a href="https://linkedin.com/in/tannirusainarendra" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="https://twitter.com/SaiNarendraDev" target="_blank"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+  <a href="https://sainarendra.dev" target="_blank"><img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=dev.to&logoColor=white"/></a>
+  <a href="mailto:youremail@example.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+</p>
+
+---
+
+> "I build **secure, scalable, and beautiful full-stack systems** — code that delights both humans and machines."
